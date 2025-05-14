@@ -5,8 +5,6 @@ from torch_geometric.nn import AttentiveFP
 
 
 class ProtGCNBlock(nn.Module):
-    """Protein graph convolution block with ESM embeddings"""
-
     def __init__(self, php_emb=33, dihedrals=6, esm_emb=2560, edge=39, gcn=[128, 256, 256]):
         super().__init__()
         # Feature projection layers
@@ -41,8 +39,6 @@ class ProtGCNBlock(nn.Module):
 
 
 class ProtGCNModel(nn.Module):
-    """Protein graph encoder with ESM embeddings"""
-
     def __init__(self, pretrained_emb, gcn):
         super().__init__()
         self.graph_conv = ProtGCNBlock(esm_emb=pretrained_emb, gcn=gcn)
@@ -59,8 +55,6 @@ class ProtGCNModel(nn.Module):
 
 
 class AttentionFPBlock(nn.Module):
-    """AttentiveFP graph convolution block"""
-
     def __init__(self, input_dim, hidden_dim, output_dim, edge_dim, num_layers, num_timesteps, dropout_rate):
         super().__init__()
         self.attentive_fp = AttentiveFP(
@@ -78,8 +72,6 @@ class AttentionFPBlock(nn.Module):
 
 
 class DrugGCNModel(nn.Module):
-    """Drug molecule graph encoder"""
-
     def __init__(self, input_dim, hidden_dim, output_dim, edge_dim, num_layers, num_timesteps, dropout_rate):
         super().__init__()
         self.attention_block = AttentionFPBlock(
@@ -99,8 +91,6 @@ class DrugGCNModel(nn.Module):
 
 
 class CNNBlock(nn.Module):
-    """1D convolution block with dropout"""
-
     def __init__(self, in_channels, out_channels, kernel_size, dropout_rate):
         super().__init__()
         self.conv = nn.Conv1d(in_channels, out_channels, kernel_size)
