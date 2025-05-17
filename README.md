@@ -15,5 +15,6 @@ The directory of Python packages required for the dependencies should be placed 
 
 # Running
 python data_pre_process.py
+
 python run.py
            
