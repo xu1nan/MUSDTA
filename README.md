@@ -6,8 +6,11 @@ The directory of Python packages required for the dependencies should be placed 
 
 # Data preparation
 1.Unpacking data.zip
+
 2.Unpacking Pertrainmodel.zip
+
 2.Move the downloaded folders to the directory of each dataset.
+
     /data/davis
     /data/kiba
     /data/pdbbind
