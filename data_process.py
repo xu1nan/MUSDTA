@@ -15,12 +15,6 @@ def load_data(dataset):
         affinity = -np.log10(affinity / 1e9)
     if dataset == 'bindingdb':
         affinity = -np.log10(affinity + 1 / 1e9)
-    if dataset == 'davis_top1_pocket':
-        affinity = -np.log10(affinity / 1e9)
-    if dataset == 'davis_top2_pocket':
-        affinity = -np.log10(affinity / 1e9)
-    if dataset == 'davis_top3_pocket':
-        affinity = -np.log10(affinity / 1e9)
 
     return affinity
 
@@ -211,11 +205,6 @@ def get_drug_molecule_graph(ligands):
 
     for drug_id in ligands:
         mol = Chem.MolFromSmiles(ligands[drug_id])
-        if not mol:
-            print(f"{drug_id} is none")
-            smile_graph[drug_id] = get_zero_graph()
-            continue
-
         smile_graph[drug_id] = smile_to_graph(
             Chem.MolToSmiles(mol, isomericSmiles=True)
         )
@@ -334,26 +323,6 @@ def info_3D(a, b, c):
 
     return np.degrees(angle), area, ac_
 
-def get_zero_graph(node_dim=18, edge_dim=12):
-    c_size = 1
-    features = torch.zeros((c_size, node_dim), dtype=torch.float32)
-    edge_attr = torch.zeros((0, edge_dim), dtype=torch.float32)
-    edge_index = torch.zeros((2, 0), dtype=torch.long)
-
-    return c_size, features, edge_attr, edge_index
 
 
 
-
-if __name__ == '__main__':
-    with open('data/davis/drugs.txt', 'r') as file:
-        data = file.read()
-    drugs_dict = json.loads(data)
-    with open('data/davis/targets_pdb.txt', 'r') as file:
-        data2 = file.read()
-    target_dict = json.loads(data2)
-
-    # t1 = get_target_molecule_graph(target_dict, "davis")
-    t2 = get_target_molecule_sequence(target_dict,"davis")
-    # d1 = get_drug_molecule_sequence(drugs_dict, "davis")
-    # d2 = get_drug_molecule_graph(drugs_dict)
