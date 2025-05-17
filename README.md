@@ -18,8 +18,8 @@ The Pertrainmodel is downloaded from https://...
     /data/pdbbind
     /data/bindingdb
 
-    Pertrainmodel/ESM2_t36_3B_UR50D
-    Pertrainmodel/ChemBERTa
+    /Pertrainmodel/ESM2_t36_3B_UR50D
+    /Pertrainmodel/ChemBERTa
 
 # Running
     python data_pre_process.py
