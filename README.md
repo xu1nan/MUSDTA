@@ -2,7 +2,7 @@
 MUSDTA is an advanced computational framework for predicting drug–target binding affinity (DTA). By integrating multimodal feature fusion and structural modeling, it comprehensively captures the complex interactions between drugs and targets, aiming to enhance the efficiency and accuracy of drug discovery.
 
 # Dependency
-The directory of Python packages required for the dependencies should be placed  requirements.txt.
+The directory of Python packages required for the dependencies should be placed in requirements.txt.
 
 # Data preparation
 The MUSDTA data is downloaded from https://...
