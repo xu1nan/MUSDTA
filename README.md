@@ -19,7 +19,7 @@ The Pertrainmodel is downloaded from https://...
     /data/bindingdb
 
 # Running
-python data_pre_process.py
+    python data_pre_process.py
 
-python run.py
+    python run.py
            
