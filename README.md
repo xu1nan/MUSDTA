@@ -5,9 +5,6 @@ MUSDTA is an advanced computational framework for predicting drug–target bindi
 The directory of Python packages required for the dependencies should be placed in a requirements file.
 
 # Data preparation
-The MUSDTA data is downloaded from https://...
-
-The Pertrainmodel is downloaded from https://...
 
 1.Unpacking data.zip
 
